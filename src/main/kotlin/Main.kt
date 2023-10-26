@@ -24,7 +24,7 @@ fun main() {
 fun calculationCommission(sumTransfer: Int, sumOldTransfer: Int, cardName: String = "VK Pay"): Int {
     return when (cardName) {
         "Mastercard", "Maestro" -> commissionMastercard(sumTransfer, sumOldTransfer)
-        "Visa", "Мир" -> max((sumTransfer * 0.75) / 100, 35.0).toInt()
+        "Visa", "Mir" -> max((sumTransfer * 0.75) / 100, 35.0).toInt()
         "VK Pay" -> 0
         else -> 0
     }
@@ -32,7 +32,7 @@ fun calculationCommission(sumTransfer: Int, sumOldTransfer: Int, cardName: Strin
 
 fun commissionMastercard(sumTransfer: Int, sumOldTransfer: Int): Int {
     return when {
-        sumTransfer + sumOldTransfer < 75_000 -> 0
+        sumTransfer <= 0 || (sumTransfer + sumOldTransfer < 75_000) -> 0
         sumOldTransfer > 75_000 -> ((sumTransfer * 0.6) / 100 + 20).toInt()
         else -> (((sumTransfer + sumOldTransfer - 75_000) * 0.6) / 100 + 20).toInt()
     }
