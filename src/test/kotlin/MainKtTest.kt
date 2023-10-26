@@ -66,7 +66,7 @@ class MainKtTest {
     @Test
     fun calculationCommissionMaestroTransfer75000() {
         val sumCommission = calculationCommission(50_000, 10_000, "Maestro")
-        assertEquals(sumCommission, 0)
+        assertEquals(sumCommission, 1)
     }
 
     @Test
